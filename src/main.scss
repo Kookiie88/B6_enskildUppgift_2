@@ -1,0 +1,532 @@
+$xs: 414px;
+$small: 740px;
+$medium: 960px;
+$large: 1080px;
+$xl: 1200px;
+$xxl: 1650px;
+$spec: 1260px;
+
+@mixin breakpoint($point) {
+    @media screen and (min-width: $point) {
+        @content;
+    }
+}
+
+@mixin breakpointMax($point) {
+    @media screen and (max-width: $point) {
+        @content;
+    }
+}
+
+html {
+    font-size: 24px;
+}
+
+.body {
+    font-family: "roboto";
+    margin: 0;
+    overflow-x: hidden;
+
+    &--openMenu {
+        overflow: hidden;
+    }
+}
+/*-----Header section-----*/
+@import "header";
+/*-----Main section-----*/
+.main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    &__hackerImg {
+        width: 100vw;
+
+        @include breakpoint($medium) {
+            display: none;
+        }
+    }
+    &__hackerImgWide {
+        display: none;
+        width: 100vw;
+
+        @include breakpoint($medium) {
+            display: block;
+        }
+    }
+    &__popularTitle {
+        font-size: 1.3rem;
+        font-weight: 400;
+        margin-bottom: 0;
+        margin-top: 105px;
+
+        @include breakpoint($medium) {
+            font-size: 1.5rem;
+        }
+        @include breakpointMax($xs) {
+            font-size: 1rem;
+        }
+    }
+}
+
+.ourChallenges {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1280px;
+    justify-content: center;
+    gap: 38px;
+    padding-top: 30px;
+    margin: 52px;
+
+    &__card {
+        border-radius: 8px;
+        box-shadow: 0 0 8px #b6bdb5;
+        display: flex;
+        flex-direction: column;
+        height: 446px;
+        width: 363px;
+    }
+
+    &__img {
+        background-image: url("assets/image 2.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 8px 8px 0px 0px;
+        height: 219px;
+        width: 363px;
+    }
+    &__title {
+        font-size: 28px;
+        margin: 0;
+        margin: 0px 17px;
+        margin-top: 12px;
+    }
+    &__rating {
+        margin: 0px 17px;
+        margin-bottom: 23px;
+    }
+    &__participants {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 400;
+        margin-left: 15px;
+    }
+    &__text {
+        color: #000000;
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0px 17px;
+        white-space: normal;
+    }
+    &__btn {
+        align-self: flex-end;
+        background-color: #e3170a;
+        border: none;
+        border-radius: 4px;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 0.7rem;
+        font-weight: 700;
+        height: 44px;
+        margin: 20px 18px 12px 0px;
+        width: 179.28px;
+    }
+}
+
+.btnCont {
+    display: flex;
+    flex-direction: column;
+    margin-top: 37px;
+
+    @include breakpoint($small) {
+        align-items: last baseline;
+        flex-direction: row-reverse;
+        justify-content: center;
+    }
+    @include breakpoint($xxl) {
+        transform: scale(1.2);
+    }
+    &__onSiteBtn {
+        background-color: #8acfe5;
+        border: none;
+        border-radius: 4px;
+        color: #011827;
+        cursor: pointer;
+        font-family: "roboto";
+        font-size: 1rem;
+        font-weight: 700;
+        height: 66px;
+        width: 308px;
+
+        @include breakpointMax($xs) {
+            width: fit-content;
+        }
+        @include breakpoint($small) {
+            margin-left: 8.5px;
+            margin-top: 0px;
+        }
+    }
+    &__onlineBtn {
+        background-color: transparent;
+        border: none;
+        color: #36769d;
+        cursor: pointer;
+        font-family: "roboto";
+        font-size: 0.7rem;
+        font-weight: 700;
+        height: 19.97px;
+        margin-top: 30px;
+        text-decoration: underline;
+
+        @include breakpoint($small) {
+            background-color: #e3170a;
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 1rem;
+            height: 66px;
+            margin-right: 8.5px;
+            margin-top: 0;
+            text-decoration: none;
+            width: 308px;
+        }
+    }
+    &--offSet {
+        @include breakpoint($small) {
+            bottom: 33px;
+            margin: 0;
+            position: relative;
+        }
+    }
+    &--moreTopMargin {
+        @include breakpoint($medium) {
+            margin-top: 77px;
+        }
+    }
+    & a {
+        text-align: center;
+    }
+}
+
+.reviewCont {
+    display: flex;
+
+    &__review {
+        display: flex;
+        font-family: "roboto";
+        height: fit-content;
+        margin-top: 67px;
+
+        @include breakpoint($large) {
+            margin-top: 74px;
+        }
+    }
+    &__img {
+        height: 72px;
+        margin-right: 22px;
+        width: 73.34px;
+
+        @include breakpoint($large) {
+            height: 96px;
+            width: 96px;
+        }
+    }
+    &__text {
+        font-weight: 400;
+        max-width: 343.26px;
+
+        @include breakpoint($large) {
+            max-width: 407px;
+        }
+    }
+    &__quote {
+        font-style: italic;
+        margin: 0px;
+    }
+    &__name {
+        font-size: 0.8rem;
+        height: 21px;
+        margin: 0px;
+        margin-top: 12px;
+
+        @include breakpoint($large) {
+            max-width: 300px;
+        }
+    }
+    &__review--hidden {
+        display: none;
+        margin-left: 1rem;
+
+        @include breakpoint($large) {
+            display: flex;
+        }
+        @include breakpoint($xxl) {
+            margin-left: 8rem;
+        }
+        &__text {
+            width: 415px;
+        }
+    }
+}
+
+.sidescroll {
+    display: flex;
+    margin-top: 44px;
+    overflow-x: scroll;
+    padding: 10px 0px 10px 0px;
+    width: 100dvw;
+    gap: 40px;
+
+    &::before,
+    &::after {
+        content: "";
+        flex: 1;
+    }
+
+    @include breakpoint($xl) {
+        margin-top: 87px;
+    }
+    @include breakpoint($xxl) {
+        height: 600px;
+    }
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &__card {
+        border-radius: 8px;
+        position: relative;
+        box-shadow: 0 0 8px #b6bdb5;
+        display: flex;
+        flex-direction: column;
+        height: 446px;
+        width: 363px;
+    }
+
+    &__img {
+        background-image: url("assets/image 2.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 8px 8px 0px 0px;
+        height: 219px;
+        width: 363px;
+    }
+    &__icon {
+        color: rgba(255, 0, 0, 0.7);
+        font-size: 1.5rem;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+    &__title {
+        font-size: 28px;
+        margin: 16px 16px 0;
+        font-weight: normal;
+    }
+    &__rating {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0px 16px;
+        margin-bottom: 20px;
+        &__stars {
+            display: flex;
+            gap: 6px;
+            color: #e3170a;
+            font-size: 16px;
+        }
+    }
+
+    &__participants {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    &__text {
+        color: #000000;
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0px 17px;
+        white-space: normal;
+        flex-grow: 1;
+    }
+    &__btn {
+        align-self: flex-end;
+        background-color: #e3170a;
+        border: none;
+        border-radius: 4px;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 0.7rem;
+        font-weight: 700;
+        height: 44px;
+        margin: 0 14px 14px 0;
+        padding: 0 5px 0 5px;
+        width: fit-content;
+        min-width: 179.28px;
+    }
+}
+
+.zeroChallenges {
+    display: none;
+    text-align: center;
+    margin: 40px auto 100px;
+    font-size: 45px;
+    font-weight: 400;
+
+    @include breakpoint($large) {
+        margin-top: 60px;
+        margin-bottom: 0px;
+    }
+}
+
+.break {
+    align-items: center;
+    background-color: #011827;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: center;
+    margin-top: 56px;
+    overflow-x: hidden;
+    width: 100vw;
+
+    @include breakpoint($large) {
+        margin-top: 87px;
+    }
+    &__text {
+        color: #ffffff;
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin: 0px 20px 0px 20px;
+        max-width: 439px;
+        text-align: center;
+
+        @include breakpointMax($xs) {
+            font-size: 1rem;
+        }
+        @include breakpoint($medium) {
+            max-width: 632px;
+        }
+        @include breakpoint($xxl) {
+            font-size: 1.6rem;
+        }
+    }
+    &__btn {
+        background-color: #011827;
+        border: solid 2px #8acfe5;
+        border-radius: 4px;
+        color: #8acfe5;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 700;
+        height: 66px;
+        margin-top: 56px;
+        width: 308px;
+
+        @include breakpointMax($xs) {
+            width: fit-content;
+        }
+        @include breakpoint($large) {
+            margin-top: 44px;
+        }
+        @include breakpoint($xxl) {
+            transform: scale(1.2);
+        }
+    }
+    &__btn:hover {
+        border-color: #ffffff;
+        color: #ffffff;
+    }
+}
+
+.info {
+    @include breakpoint($large) {
+        display: flex;
+        width: 100vw;
+    }
+    &__content {
+        @include breakpoint($large) {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 50vw;
+        }
+    }
+    &__img {
+        height: auto;
+        width: 100vw;
+
+        @include breakpoint($large) {
+            width: 50vw;
+        }
+    }
+    &__title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin: 30px 20px 30px 20px;
+        margin-top: 30px;
+        max-width: 435px;
+
+        @include breakpoint($large) {
+            margin: 0;
+            margin-top: 60px;
+            width: 416px;
+        }
+        @include breakpoint($xxl) {
+            font-size: 1.5rem;
+        }
+    }
+    &__text {
+        font-weight: 400;
+        margin: 25px 20px 25px 20px;
+        max-width: 435px;
+
+        @include breakpoint($large) {
+            width: 416px;
+        }
+        @include breakpoint($xxl) {
+            font-size: 1.2rem;
+        }
+    }
+    &__btn {
+        background-color: #e3170a;
+        border: none;
+        border-radius: 4px;
+        color: #ffffff;
+        cursor: pointer;
+        font-family: "roboto";
+        font-size: 1rem;
+        font-weight: 700;
+        height: 66px;
+        margin: 25px 0px 64px 21px;
+        width: 308px;
+
+        @include breakpointMax($xs) {
+            width: fit-content;
+        }
+        @include breakpoint($large) {
+            margin: 0;
+            margin-bottom: 66px;
+            position: relative;
+            transform: translateX(-55px);
+        }
+        @include breakpoint($xxl) {
+            transform: translateX(-25px) scale(1.2);
+        }
+    }
+    &--reversed {
+        flex-direction: row-reverse;
+    }
+}
+/*-----Footer section-----*/
+@import "footer";
+
+/*----booking section----*/
+
+@import "booking";
+
+/*----searchBox section----*/
+@import "searchBox";

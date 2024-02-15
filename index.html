@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Startsida ESC Hacker Escape Rooms</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://kit.fontawesome.com/193a8b5258.js" crossorigin="anonymous"></script>
+  <script src="script.js" type="module" defer></script>
+  <script src="booking.js" type="module" defer></script>
+  <script src="fetchChallenges.js" type="module" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body class="body">
+  <header class="header">
+    <div class="logoAndTitle">
+      <img class="logoAndTitle__logo" src="assets/image 4.png" alt="ESC-Logo" />
+      <h1 class="logoAndTitle__title">Hacker Escape Rooms</h1>
+      <button type="button" class="logoAndTitle__hamburgerBtn">
+        <img src="assets/Group 7.png" alt="" />
+      </button>
+    </div>
+
+    <ul class="navbar">
+      <li class="navbar__navItem">
+        <a href="ourChallenges.html?onsite=false">Play online</a>
+      </li>
+      <li class="navbar__navItem"><a href="ourChallenges.html?online=false">Play on-site</a></li>
+      <li class="navbar__navItem"><a href="">The story</a></li>
+      <li class="navbar__navItem"><a href="">Contact us</a></li>
+    </ul>
+    <section class="hamburgerMenu">
+      <div class="hamburgerMenu__menuCont">
+        <button type="button" class="hamburgerMenu__closeBtn">
+          <img src="assets/close.png" alt="Close button" />
+        </button>
+        <ul class="hamburgerMenu__menu">
+          <li class="hamburgerMenu__item"><a href="">Play online</a></li>
+          <li class="hamburgerMenu__item"><a href="">Play on-site</a></li>
+          <li class="hamburgerMenu__item"><a href="">The story</a></li>
+          <li class="hamburgerMenu__item"><a href="">Contact us</a></li>
+        </ul>
+      </div>
+    </section>
+  </header>
+
+  <main class="main">
+    <section>
+      <img class="main__hackerImg" src="assets/image 2.png" alt="image of a man coding" />
+      <img class="main__hackerImgWide" src="assets/image 2 cropped.png" alt="image of a man coding" />
+    </section>
+
+    <section class="btnCont btnCont--offSet">
+      <a href="ourChallenges.html?online=false">
+        <button type="button" class="btnCont__onSiteBtn">On-site challenges</button>
+      </a>
+      <a href="ourChallenges.html?onsite=false">
+        <button type="button" class="btnCont__onlineBtn">Online challenges</button>
+      </a>
+    </section>
+
+    <section class="reviewCont">
+      <article class="reviewCont__review">
+        <img class="reviewCont__img" src="assets/image 3.png" alt="stockGuy" />
+        <div class="reviewCont__text">
+          <p class="reviewCont__quote">
+            This is a quote about how amazing this place is and how much fun
+            me and my friends had when we tried it
+          </p>
+          <p class="reviewCont__name">
+            John Doe, visited us in September 2021
+          </p>
+        </div>
+      </article>
+      <article class="reviewCont__review reviewCont__review--hidden">
+        <img class="reviewCont__img" src="assets/image 3.png" alt="stockGuy" />
+        <div class="reviewCont__review--hidden__text">
+          <p class="reviewCont__quote">
+            This is a quote about how amazing this place is and how much fun
+            me and my friends had when we tried it
+          </p>
+          <p class="reviewCont__name">
+            John Doe, visited us in September 2021
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="main__popularTitle">Popular challenges right now</h2>
+
+    <section class="sidescroll"></section>
+
+    <section class="btnCont btnCont--moreTopMargin">
+      <a href="ourChallenges.html?online=false">
+        <button type="button" class="btnCont__onSiteBtn">On-site challenges</button>
+      </a>
+      <a type="button" href="ourChallenges.html?onsite=false">
+        <button type="button" class="btnCont__onlineBtn">Online challenges</button>
+      </a>
+    </section>
+
+    <section class="break">
+      <p class="break__text">
+        Quodsi haberent magnalia inter potentiam et divitias, et non illam
+        quidem haec eo spectant haec quoque vos omnino desit illud quo solo
+        felicitatis libertatisque perficiuntur.
+      </p>
+      <button type="button" class="break__btn">
+        Read the full story
+      </button>
+    </section>
+
+    <section class="info">
+      <img class="info__img" src="assets/nesa-by-makers-IgUR1iX0mqM-unsplash 1.png" alt="" />
+      <div class="info__content">
+        <h2 class="info__title">
+          Play with your friends or build your team stronger at work
+        </h2>
+        <p class="info__text">
+          Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
+          nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
+        </p>
+        <button type="button" class="info__btn">Book on-site today</button>
+      </div>
+    </section>
+
+    <section class="info info--reversed">
+      <img class="info__img" src="assets/kelly-sikkema-YK0HPwWDJ1I-unsplash 1.png" alt="" />
+      <div class="info__content">
+        <h2 class="info__title">
+          Play online or visit our venue for one of our 25 escape rooms
+        </h2>
+        <p class="info__text">
+          Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
+          nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
+        </p>
+        <a href="ourChallenges.html"><button type="button" class="info__btn">See all challenges</button></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="about">
+      <h4 class="about__title">[Esc] Hacker Escape Rooms</h4>
+      <p class="about__text">
+        Quodsi haberent magnalia inter potentiam et divitias, et non illam
+        quidem haec eo spectant haec quoque vos omnino desit illud quo solo
+        felicitatis libertatisque perficiuntur.
+      </p>
+    </div>
+    <ul class="lowerNav lowerNav--marginLeft">
+      <h4 class="lowerNav__title">Site map</h4>
+      <li class="lowerNav__item"><a href="">The story</a></li>
+      <li class="lowerNav__item"><a href="">Contact Us</a></li>
+      <li class="lowerNav__item"><a href="">Legal</a></li>
+      <br />
+      <li class="lowerNav__item">
+        <a href="ourChallenges.html?onsite=false">Play online</a>
+      </li>
+      <li class="lowerNav__item"><a href="ourChallenges.html?online=false">Play on-site</a></li>
+    </ul>
+
+    <ul class="lowerNav lowerNav--marginRight">
+      <h4 class="lowerNav__title">Follow us on</h4>
+      <li class="lowerNav__item"><a href="">Facebook</a></li>
+      <li class="lowerNav__item"><a href="">Instagram</a></li>
+      <li class="lowerNav__item"><a href="">Twitter</a></li>
+    </ul>
+  </footer>
+
+  <template id="card-template">
+    <article class="sidescroll__card">
+      <img class="sidescroll__img"></img>
+      <i class="fa-solid sidescroll__icon"></i>
+      <h2 class="sidescroll__title">Title of room (on-site)</h2>
+      <div class="sidescroll__rating">
+        <div class="sidescroll__rating__stars"></div>
+        <small class="sidescroll__participants">2-6 participants</small>
+      </div>
+      <p class="sidescroll__text">
+        Praeterea, ex culpa non invenies unum aut non accusatis unum. Et
+        nihil inuitam. Nemo nocere tibi erit, et non inimicos, et
+      </p>
+      <button type="button" class="sidescroll__btn">Book this room</button>
+    </article>
+  </template>
+
+  <section class="booking">
+    <div class="booking-container">
+      <div class="booking-container__step-one">
+        <div class="booking-container__text">
+          <div class="top-container">
+            <i class="fa-solid fa-x fa-xl" id="x-symbol"></i>
+          </div>
+          <h1 class="booking-container__title">Book room "title of room" (step 1)</h1>
+          <h3 class="booking-container__sub-title">What date would you like to come</h3>
+          <small class="booking-container__input-title">Date</small>
+          <input name="date" type="date" class="booking-container__dateInput"></input>
+        </div>
+        <div class="booking-container__button-div">
+          <button type="button" class="booking-container__button">Search available items</button>
+        </div>
+
+      </div>
+      <form onsubmit="return false" class="booking-container__step-two invisible">
+        <div class="booking-container__text second-step">
+          <div class="top-container">
+            <i class="fa-solid fa-x fa-xl" id="x-symbol"></i>
+          </div>
+          <h1 class="booking-container__title title-two">Book room "title of room" (step 2)</h1>
+          <small class="booking-container__input-title">Name</small>
+          <input type="text" class="booking-container__name-input" required>
+          <small class="booking-container__input-title">E-mail</small>
+          <input type="email" class="booking-container__e-mail-input" required>
+          <small class="booking-container__input-title">What time?</small>
+          <select name="time" class="booking-container__select time">
+          </select>
+          <small class="booking-container__input-title">How many participants?</small>
+          <select name="participants" class="booking-container__select participants">
+          </select>
+        </div>
+        <div class="booking-container__button-div-two">
+          <input type="submit" value="Submit booking" class="booking-container__submit-button"></input>
+        </div>
+      </form>
+
+      <div class="booking-container__step-three invisible">
+        <h1 class="booking-container__title thank-you">Thank you!</h1>
+        <a href="" class="booking-continer__link">Back to challenges</a>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+.footer {
+    background-color: #011827;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    margin-top: 34px;
+    min-height: 566px;
+
+    @include breakpoint($large) {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 183px;
+        min-height: 467px;
+    }
+}
+
+.about {
+    margin: 64px 0px 40px 23px;
+    max-width: 434px;
+
+    @include breakpoint($large) {
+        margin: 146px 0px 0px 108px;
+        width: 416px;
+    }
+    &__title {
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin: 0;
+        margin-bottom: 7px;
+
+        @include breakpoint($xxl) {
+            font-size: 1.2rem;
+            margin-bottom: 14px;
+        }
+    }
+    &__text {
+        font-size: 0.75rem;
+        list-style: none;
+        margin: 0;
+
+        @include breakpoint($xxl) {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.lowerNav {
+    height: fit-content;
+    margin: 0px 0px 35px 23px;
+    min-width: fit-content;
+    padding: 0;
+
+    @include breakpoint($large) {
+        margin-top: 146px;
+    }
+    &__title {
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin: 0px 0px 7px 0px;
+
+        @include breakpoint($large) {
+            margin-top: 0px;
+        }
+        @include breakpoint($xxl) {
+            font-size: 1.2rem;
+            margin-bottom: 14px;
+        }
+    }
+    &__item {
+        cursor: pointer;
+        font-size: 0.75rem;
+        line-height: 22px;
+        list-style: none;
+
+        @include breakpoint($xxl) {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        & a {
+            color: #ffffff;
+            text-decoration: none;
+
+            &:hover {
+                color: #8acfe5;
+            }
+        }
+    }
+    &--marginRight {
+        @include breakpoint($large) {
+            margin-left: 50px;
+            margin-right: 206px;
+        }
+    }
+    &--marginLeft {
+        @include breakpoint($large) {
+            margin-left: 150px;
+        }
+    }
+}

@@ -1,0 +1,299 @@
+.booking-container {
+  display: none;
+  position: fixed;
+  inset: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+
+  @include breakpoint($xl) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__backdrop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100vw;
+    height: 100%;
+    z-index: 0;
+  }
+
+  &__title {
+    max-width: 440px;
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-top: 10px;
+
+    @include breakpoint($small) {
+      max-width: 700px;
+    }
+
+    @include breakpoint($large) {
+      font-size: 2em;
+      max-width: 900px;
+    }
+  }
+
+  &__sub-title {
+    font-size: 1em;
+    font-weight: 400;
+
+    @include breakpoint($large) {
+      font-size: 1em;
+    }
+  }
+
+  &__input-title {
+    font-size: 0.8em;
+    font-weight: 700;
+
+    @include breakpoint($large) {
+      font-size: 1em;
+    }
+  }
+
+  &__dateInput {
+    width: 80%;
+    max-width: 260px;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 10px;
+    white-space: nowrap;
+    border: solid lightgray;
+  }
+
+  .thank-you {
+    font-size: 2em;
+    margin-bottom: 50px;
+
+    @include breakpoint($large) {
+      font-size: 2.5em;
+    }
+  }
+
+  a {
+    color: #36769d;
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: #36769d;
+  }
+
+  &__step-one {
+    position: absolute;
+    inset: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    border: 2px solid gray;
+    overflow: auto;
+    @include breakpoint($xl) {
+      width: 1150px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 20px;
+
+    @media screen and (max-height: 760px) {}
+  }
+
+  &__input-date {
+    width: 80%;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid lightgrey;
+    max-width: 200px;
+  }
+
+  &__button {
+    background-color: #e3170a;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-weight: 700;
+    height: 66px;
+    width: 80%;
+    max-width: 308px;
+    float: right;
+    margin: 20px;
+    @media screen and (max-width: 500px) {
+      align-self: center;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  &__step-two {
+    position: absolute;
+    inset: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    border: 2px solid gray;
+    overflow: auto;
+    @include breakpoint($xl) {
+      width: 1150px;
+    }
+  }
+
+  .second-step {
+    gap: 10px;
+  }
+
+  .invisible {
+    display: none;
+  }
+
+  &__select {
+    width: 300px;
+  }
+
+  &__name-input {
+    width: 80%;
+    max-width: 300px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid lightgrey;
+  }
+
+  &__e-mail-input {
+    width: 80%;
+    max-width: 300px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid lightgrey;
+  }
+
+  &__select {
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid lightgrey;
+  }
+
+  &__submit-button {
+    background-color: #e3170a;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-weight: 700;
+    height: 66px;
+    width: 80%;
+    max-width: 308px;
+    float: right;
+    margin: 20px;
+    @media screen and (max-width: 500px) {
+      align-self: center;
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  &__step-three {
+    position: absolute;
+    inset: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    border: 2px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include breakpoint($xl) {
+      width: 1150px;
+    }
+  }
+
+  &__button-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 1fr;
+
+    @include breakpoint($small) {
+      height: 100%;
+    }
+  }
+
+  &__button-div-two {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+
+    @include breakpoint($small) {
+      height: 100%;
+    }
+  }
+}
+
+.grow-in {
+  animation: growIn 0.1s linear 1 normal forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.15s ease-in 1 normal forwards;
+}
+
+.top-container {
+  height: 30px;
+  display: flex;
+  flex-direction: row-reverse;
+
+  i {
+    margin-top: 30px;
+    margin-right: 25px;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  i:hover {
+    cursor: pointer;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes growIn {
+  0% {
+    scale: 70%;
+  }
+
+  100% {
+    scale: 100%;
+  }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "a2-uppgift-2-startsida-esc-hacker-escape-rooms",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "sass:watch": "sass --no-source-map --watch src/main.scss main.css",
+        "sass:compile": "sass --no-source-map src/main.scss main.css",
+        "open-cypress": "cypress open",
+        "test": "cypress run"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "cypress": "^13.6.0",
+        "sass": "^1.69.5"
+    }
+}
