@@ -17,8 +17,8 @@ describe("Look for specific element when using filtering", () => {
     );
 
     //Open the filter box
-    cy.get(".filter__filterBoxOpenButton").click();
     cy.wait(1000);
+    cy.get(".filter__filterBoxOpenButton").click();
 
     //Uncheck box for online
     cy.get(".filter__onlineCheckbox").click();
