@@ -6,9 +6,7 @@ const bookingContainer = document.querySelector(".booking-container");
 
 const bookingButtonOne = document.querySelector(".booking-container__button");
 
-const submitBookingButton = document.querySelector(
-    ".booking-container__submit-button"
-);
+const submitBookingButton = document.querySelector(".booking-container__submit-button");
 
 //Function that fetches data from api
 async function fetchData(url) {
@@ -26,6 +24,10 @@ let cardId;
 
 let dateApi;
 
+let minPar;
+
+let maxPar;
+
 let bookingBtn = document.querySelectorAll(".sidescroll__btn");
 //for loop that loops through bookingBtn array length
 for (let i = 0; i < bookingBtn.length; i++) {
@@ -38,9 +40,7 @@ for (let i = 0; i < bookingBtn.length; i++) {
 
         /*Declaring variable as date input then setting the 
         starting value of date select to todays date*/
-        const dateInput = document.querySelector(
-            ".booking-container__dateInput"
-        );
+        const dateInput = document.querySelector(".booking-container__dateInput");
         dateInput.valueAsDate = new Date();
 
         /*Declaring variable to todays date with correct format, 
@@ -57,9 +57,7 @@ for (let i = 0; i < bookingBtn.length; i++) {
 
         //Changes style of element and removes class
         document.querySelector(".body").style.overflow = "hidden";
-        document
-            .querySelector(".booking-container__step-one")
-            .classList.remove("invisible");
+        document.querySelector(".booking-container__step-one").classList.remove("invisible");
 
         //Getting the right challenge and id
         const challenge = challenges[i];
@@ -75,22 +73,14 @@ for (let i = 0; i < bookingBtn.length; i++) {
 //Eventlistener function that reacts to click on "search available times" button
 bookingButtonOne.addEventListener("click", async () => {
     //Sets variable value to the users input of .booking-container__dateInput
-    let dateValue = document.querySelector(
-        ".booking-container__dateInput"
-    ).value;
+    let dateValue = document.querySelector(".booking-container__dateInput").value;
 
     //Adds and removes classes of elements
-    document
-        .querySelector(".booking-container__step-one")
-        .classList.add("invisible");
-    document
-        .querySelector(".booking-container__step-two")
-        .classList.remove("invisible");
+    document.querySelector(".booking-container__step-one").classList.add("invisible");
+    document.querySelector(".booking-container__step-two").classList.remove("invisible");
 
     document.querySelector(".second-step").classList.add("fade-in");
-    document
-        .querySelector(".booking-container__submit-button")
-        .classList.add("fade-in");
+    document.querySelector(".booking-container__submit-button").classList.add("fade-in");
 
     /*Adds variables into url and runs function fetchData then 
     puts return value into dateApi variable*/
@@ -116,8 +106,9 @@ submitBookingButton.addEventListener("click", async () => {
         const dotPos = email.lastIndexOf(".");
         return atPos > 0 && dotPos > atPos + 1 && dotPos < email.length - 1;
     }
-/*If statement that ensures that the name input and email input 
-has correct format, else returns*/
+
+    /*If statement that ensures that the name, email, time and participants inputs 
+has correct format and values, else returns*/
     if (
         emailInput.value == "" ||
         !emailInput.value.includes("@") ||
@@ -125,31 +116,31 @@ has correct format, else returns*/
         nameInput.value == "" ||
         booking.time == "" ||
         booking.participants == "" ||
-        validateEmail(emailInput.value) == false
+        validateEmail(emailInput.value) == false ||
+        particiSelect.value < minPar ||
+        particiSelect.value > maxPar
     ) {
         return;
     }
-//Adds and removes classes of elements
-    document
-        .querySelector(".booking-container__step-two")
-        .classList.add("invisible");
-    document
-        .querySelector(".booking-container__step-three")
-        .classList.remove("invisible");
-    document
-        .querySelector(".booking-container__step-three")
-        .classList.add("fade-in");
+  
+    //Check so thats its only numbers 
+    if (!/^\d{10}$/.test(numInput.value)) {
+        // If not, return
+        return;
+    }
 
-    const res = await fetch(
-        "https://lernia-sjj-assignments.vercel.app/api/booking/reservations",
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(booking),
-        }
-    );
+    //Adds and removes classes of elements
+    document.querySelector(".booking-container__step-two").classList.add("invisible");
+    document.querySelector(".booking-container__step-three").classList.remove("invisible");
+    document.querySelector(".booking-container__step-three").classList.add("fade-in");
+
+    const res = await fetch("https://lernia-sjj-assignments.vercel.app/api/booking/reservations", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(booking),
+    });
     const dataBooking = await res.json();
 });
 
@@ -158,25 +149,23 @@ function escapeBooking() {
     bookingContainer.style.display = "none";
     document.querySelector(".body").style.overflow = "";
 
-    document
-        .querySelector(".booking-container__step-one")
-        .classList.add("invisible");
-    document
-        .querySelector(".booking-container__step-two")
-        .classList.add("invisible");
-    document
-        .querySelector(".booking-container__step-three")
-        .classList.add("invisible");
+    document.querySelector(".booking-container__step-one").classList.add("invisible");
+    document.querySelector(".booking-container__step-two").classList.add("invisible");
+    document.querySelector(".booking-container__step-three").classList.add("invisible");
 
-    document
-        .querySelectorAll(".booking-container__date")
-        .forEach((element) => element.remove());
+    document.querySelectorAll(".booking-container__date").forEach((element) => element.remove());
 
     document.querySelector(".time").innerHTML = "";
-    document.querySelector(".participants").innerHTML = "";
 
     nameInput.value = "";
     emailInput.value = "";
+
+    particiSelect.removeAttribute("min");
+    particiSelect.removeAttribute("max");
+    particiSelect.removeAttribute("placeholder");
+
+    minPar = "";
+    maxPar = "";
 
     booking = {};
 }
@@ -192,27 +181,10 @@ const nameInput = document.querySelector(".booking-container__name-input");
 const emailInput = document.querySelector(".booking-container__e-mail-input");
 const particiSelect = document.querySelector(".participants");
 const timeInput = document.querySelector(".time");
+const numInput = document.querySelector(".booking-container__number-input");
 
 //creating obj for the booking request
 let booking = {};
-
-//Creating a function that creates option for the participant selector.
-const createParticipants = function (minPar, maxPar) {
-    for (let i = minPar; i <= maxPar; i++) {
-        const participantOption = document.createElement("option");
-        participantOption.classList.add("partOption");
-        participantOption.value = i;
-        if(i == 1){
-            participantOption.innerText = `${i} Participant`;
-            particiSelect.appendChild(participantOption);
-        }else{
-            participantOption.innerText = `${i} Participants`;
-            particiSelect.appendChild(participantOption);
-        }
-        
-        
-    }
-};
 
 function makeTitleForBooking(obj) {
     const titleOfChallenge = obj.title;
@@ -222,12 +194,15 @@ function makeTitleForBooking(obj) {
     titleOfBooking.innerText = `Book room ${titleOfChallenge} (step 1)`;
 }
 
-//Function that first gets max and min numbers then also creats options with every number in that span for the select.
+/*Function that first gets max and min numbers then adds those numbers to maxPar and minPar variables.
+After that it sets min/max attribute and adds placeholder to
+participants number input.*/
 function getMaxAndMinParticipants(obj) {
-    const maxParticipants = obj.maxParticipants;
-    const minParticipants = obj.minParticipants;
-
-    createParticipants(minParticipants, maxParticipants);
+    maxPar = obj.maxParticipants;
+    minPar = obj.minParticipants;
+    particiSelect.setAttribute("min", obj.minParticipants);
+    particiSelect.setAttribute("max", obj.maxParticipants);
+    particiSelect.setAttribute("placeholder", `Choose between ${minPar} - ${maxPar}`);
 }
 
 //function that creats the available times

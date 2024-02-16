@@ -1,0 +1,263 @@
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+    &__ourStory {
+        position: absolute;
+        z-index: 2;
+        color: #ffffff;
+        font-size: 2rem;
+
+        @include breakpoint($medium) {
+            font-size: 2.5rem;
+        }
+
+        @include breakpoint($xl) {
+            font-size: 3.5rem;
+        }
+    }
+}
+
+.companyStoryContainer {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    background-color: #011827;
+}
+
+.companyStory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #011827;
+    width: 100vw;
+    max-width: 1280px;
+    height: fit-content;
+    padding: 20px 0;
+    margin: 1px 0 1p 0;
+
+    @include breakpoint($medium) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        padding: 30px 0 30px 0;
+        background-color: #011827;
+        justify-items: stretch;
+    }
+
+    &__textContainer {
+        align-self: center;
+        justify-self: center;
+        color: #ffffff;
+        padding: 20px;
+        border: transparent 1px solid;
+        max-width: 50vw;
+
+        &--left {
+            grid-row: 3 / span 1;
+        }
+
+        &--right {
+            grid-column: 2 / span 1;
+            grid-row: 2 / span 1;
+        }
+
+        &--lowright {
+            grid-row: 4 / span 1;
+            grid-column: 2 / span 1;
+        }
+
+        @include breakpoint($medium) {
+            display: flex;
+            align-items: center;
+
+            max-width: 35vw;
+
+            border-radius: 20px;
+            margin: 20px 20px;
+            background-color: #011827;
+            color: #ffffff;
+            padding: 40px;
+        }
+
+        @include breakpoint($spec) {
+            max-width: 480px;
+        }
+    }
+
+    &__text {
+        font-size: 0.7rem;
+        line-height: 0.9rem;
+        text-align: center;
+        font-weight: 500;
+
+        @include breakpoint($medium) {
+            font-size: 0.9rem;
+            line-height: 1.1rem;
+            text-align: start;
+        }
+    }
+
+    &__image {
+        width: 100vw;
+        height: 400px;
+        justify-self: center;
+        align-self: center;
+
+        @include breakpoint($medium) {
+            border: transparent 1px solid;
+            border-radius: 45px;
+            max-width: 45vw;
+            margin: 20px 20px;
+            box-shadow: 0 0 8px #ffffff0b;
+        }
+
+        @include breakpoint($spec) {
+            max-width: 480px;
+        }
+
+        &One {
+            background-image: url(assets/hacker-man-laptop.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            @include breakpoint($medium) {
+                grid-column: 2 / span 1;
+                grid-row: 1 / span 1;
+            }
+        }
+
+        &Two {
+            background: url(assets/three-screens.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            @include breakpoint($medium) {
+                grid-column: 1 / span 1;
+                grid-row: 2 / span 1;
+            }
+        }
+
+        &Three {
+            background: url(assets/code.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            @include breakpoint($medium) {
+                grid-column: 2 / span 1;
+                grid-row: 3 / span 1;
+            }
+        }
+
+        &Four {
+            background: url(assets/teamwork.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            @include breakpoint($medium) {
+                grid-column: 1 / span 1;
+                grid-row: 4 / span 1;
+            }
+        }
+    }
+}
+
+.employees {
+    padding: 130px 0;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: white;
+    }
+
+    &__header {
+        font-size: 50px;
+        margin: 0;
+    }
+
+    &__text {
+        font-size: 18px;
+        font-weight: 600;
+        max-width: 480px;
+        text-align: center;
+    }
+
+    &__cards {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1280px;
+        justify-content: center;
+        gap: 38px;
+        margin-top: 50px;
+    }
+
+    &__employee {
+        display: flex;
+        width: 330px;
+        flex-direction: column;
+        border-radius: 45px;
+    }
+
+    &__cardImage {
+        width: 330px;
+        height: 330px;
+        border-radius: 45px;
+        margin-bottom: 20px;
+
+        &.employees__cardImageOne {
+            background: url(assets/employeeOne.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        &.employees__cardImageTwo {
+            background: url(assets/employeeTwo.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        &.employees__cardImageThree {
+            background: url(assets/employeeOne.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        &.employees__cardImageFour {
+            background: url(assets/employeeTwo.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        &.employees__cardImageFive {
+            background: url(assets/employeeOne.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        &.employees__cardImageSix {
+            background: url(assets/employeeTwo.png);
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+    &__cardText,
+    &__cardName {
+        padding: 0px 20px;
+        font-size: 18px;
+        color: black;
+        margin: 0;
+    }
+
+    &__cardName {
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+}

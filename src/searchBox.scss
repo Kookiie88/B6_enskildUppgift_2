@@ -1,4 +1,4 @@
-.filter{
+.filter {
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -10,8 +10,8 @@
         margin: 42px 0px;
     }
 
-    &__filterBoxOpenButton{
-        background-color: #011827;
+    &__filterBoxOpenButton {
+        background-color: #021928;
         border-radius: 6px;
         color: #ffffff;
         cursor: pointer;
@@ -22,9 +22,13 @@
         &:hover {
             color: #8acfe5;
         }
+
+        &:active {
+            transform: scale(0.98);
+        }
     }
 
-    &__filterBox{
+    &__filterBox {
         display: flex;
         flex-direction: column;
         border: solid #b6bdb5 3px;
@@ -36,20 +40,21 @@
         @include breakpointMax($small) {
             max-width: 363px;
             margin: 0px 0px;
-            
         }
-
+        &--open {
+            animation: fadeIn 0.1s linear forwards;
+        }
     }
     &__title {
         display: flex;
         justify-content: space-between;
     }
-    &__h3{
+    &__h3 {
         margin: 1rem;
         text-align: left;
     }
 
-    &__filters{
+    &__filters {
         display: grid;
         grid-template-columns: 1fr;
         margin: 20px;
@@ -61,7 +66,7 @@
             grid-template-columns: 1fr 1fr 1fr;
         }
     }
-    &__closeButton{
+    &__closeButton {
         margin: 1rem;
         filter: invert(1);
         height: 1rem;
@@ -70,32 +75,32 @@
         padding: 0.2em 0.2em;
         cursor: pointer;
     }
-    &__filterByType{
+    &__filterByType {
         display: flex;
         flex-direction: column;
     }
 
-    &__filterByRating{
+    &__filterByRating {
         display: flex;
         flex-direction: column;
     }
-    &filter__stars{
+    &filter__stars {
         display: flex;
         flex-direction: row;
     }
-    &__filterBySearch{
+    &__filterBySearch {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         margin-left: 20px;
     }
-    &__h4Keyword{
+    &__h4Keyword {
         grid-row: 1 / 1;
         grid-column: 2 / 2;
         text-align: left;
     }
 
-    &__inputFilter{
+    &__inputFilter {
         grid-row: 2 / 2;
         grid-column: 2 / 2;
         font-size: 1rem;
@@ -105,22 +110,30 @@
         border: solid #b6bdb5 3px;
         border-radius: 4px;
 
-        &::placeholder{
+        &::placeholder {
             color: #b6bdb5;
             font-weight: 400;
         }
 
-        &:focus{
+        &:focus {
             outline-width: 0;
         }
     }
 
-    &__starsMinRating{
+    &__share {
+        width: fit-content;
+        align-self: flex-end;
+        margin: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    &__starsMinRating {
         color: red;
         cursor: pointer;
     }
 
-    &__starsMaxRating{
+    &__starsMaxRating {
         color: red;
         cursor: pointer;
     }
@@ -134,11 +147,19 @@
         border: solid rgb(178, 178, 178) 2px;
         font-weight: 700;
         cursor: pointer;
-    }
 
-    &__tagButton--selected {
-        background-color: #717171d0;
-        color:#ffffff;
+        &:hover {
+            background-color: #717171d0;
+            color: #ffffff;
+        }
+        &:active {
+            transform: scale(0.95);
+        }
+
+        &--selected {
+            background-color: #717171d0;
+            color: #ffffff;
+        }
     }
 
     &__starContainer {
@@ -150,16 +171,27 @@
     &__filterByType label {
         font-size: 18px;
     }
-    &__onlineCheckbox{
+    &__onlineCheckbox {
         scale: 1.25;
         accent-color: red;
-
     }
-    &__onSiteCheckbox{
+    &__onSiteCheckbox {
         scale: 1.2;
         accent-color: red;
     }
-    &__checkboxLabel{
+    &__checkboxLabel {
         margin-bottom: 10px;
+        cursor: pointer;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0%;
+        scale: 80%;
+    }
+    100% {
+        opacity: 100%;
+        scale: 100%;
     }
 }

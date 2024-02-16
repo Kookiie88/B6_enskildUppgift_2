@@ -65,3 +65,29 @@ describe("Testing that, no challengs is displayed if both checkboxes are uncheck
     cy.get(".zeroChallenges").should("contain", "No matching challenges");
   });
 });
+
+//Testing jumping between pages
+describe("Tests the different sites", () => {
+  it("Jumps between sides via links, tests the urls aswell", () => {
+    cy.visit("https://kookiie88.github.io/B6_enskildUppgift_2/");
+    cy.url().should("eq", "https://kookiie88.github.io/B6_enskildUppgift_2/");
+
+    cy.get(".navbar__navItem").eq(0).click();
+    cy.url().should(
+      "eq",
+      "https://kookiie88.github.io/B6_enskildUppgift_2/ourChallenges.html?onsite=false"
+    );
+
+    cy.get(".navbar__navItem").eq(2).click();
+    cy.url().should("eq", "https://kookiie88.github.io/B6_enskildUppgift_2/theStory.html");
+
+    cy.get(".navbar__navItem").eq(1).click();
+    cy.url().should(
+      "eq",
+      "https://kookiie88.github.io/B6_enskildUppgift_2/ourChallenges.html?online=false"
+    );
+
+    cy.get(".navbar__navItem").eq(3).click();
+    cy.url().should("eq", "https://kookiie88.github.io/B6_enskildUppgift_2/contact.html");
+  });
+});

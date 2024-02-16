@@ -1,15 +1,13 @@
 .footer {
-    background-color: #011827;
+    background-color: #021928;
     color: #ffffff;
     display: flex;
     flex-direction: column;
-    margin-top: 34px;
     min-height: 566px;
 
     @include breakpoint($large) {
         flex-direction: row;
         justify-content: space-between;
-        margin-top: 183px;
         min-height: 467px;
     }
 }
